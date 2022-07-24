@@ -1,20 +1,32 @@
 package com.web.roomwebapp.models;
 
 
+import javax.persistence.*;
+import java.util.UUID;
 
 /**
  * @author Tolik
  * @project Spring
  * @created 7/19/2022 - 11:11 PM
  */
-public class StaffMember {
+@Entity
+@Table(name="Employee")
+public class Staff {
+    @Id
+    @Column(name="EMPLOYEE_ID")
     private String employeeId;
+    @Column(name="FIRST_NAME")
     private String firstName;
+    @Column(name="LAST_NAME")
     private String lastName;
+    @Column(name="POSITION")
+    @Enumerated(EnumType.STRING)
     private Position position;
 
-    public StaffMember() {}
-    public StaffMember(String employeeId, String firstName, String lastName, Position position) {
+    public Staff() {
+        this.employeeId = UUID.randomUUID().toString();
+    }
+    public Staff(String employeeId, String firstName, String lastName, Position position) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;

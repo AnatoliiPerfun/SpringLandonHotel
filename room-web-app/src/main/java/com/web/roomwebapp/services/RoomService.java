@@ -1,11 +1,10 @@
 package com.web.roomwebapp.services;
 
+import com.web.roomwebapp.data.RoomRepository;
 import com.web.roomwebapp.models.Room;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * @author Tolik
@@ -15,13 +14,14 @@ import java.util.stream.IntStream;
 
 @Service
 public class RoomService {
-    private static final List<Room> _rooms = new ArrayList<>();
-    static{
-        IntStream.range(0, 10)
-                .mapToObj(i -> new Room(i, "Room"+i, "R"+i, "Q"))
-                .forEach(_rooms::add);
+
+    private final RoomRepository roomRepository;
+
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
     }
+
     public List<Room> getAllRooms() {
-        return _rooms;
+        return roomRepository.findAll();
     }
 }

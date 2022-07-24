@@ -11,7 +11,6 @@
             <th>Room Name</th>
             <th>Room Info</th>
         </tr>
-
         <tr th:each="room:${rooms}">
             <td th:text="${room.number}">Number</td>
             <td th:text="${room.name}">Name</td>

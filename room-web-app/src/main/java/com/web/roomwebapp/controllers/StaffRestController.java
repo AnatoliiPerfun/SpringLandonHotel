@@ -1,6 +1,6 @@
 package com.web.roomwebapp.controllers;
 
-import com.web.roomwebapp.models.StaffMember;
+import com.web.roomwebapp.models.Staff;
 import com.web.roomwebapp.services.StaffService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +24,7 @@ public class StaffRestController {
     }
 
     @GetMapping
-    public List<StaffMember> getAllStaffMembers() {
-        return staffService.getAllStaffMembers();
+    public List<Staff> getAllStaff() {
+        return staffService.getAllStaff();
     }
 }

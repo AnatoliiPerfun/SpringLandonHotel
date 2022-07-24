@@ -1,14 +1,25 @@
 package com.web.roomwebapp.models;
 
+import javax.persistence.*;
+
 /**
  * @author Tolik
  * @project Spring
  * @created 7/19/2022 - 10:03 PM
  */
+
+@Entity
+@Table(name="ROOM")
 public class Room {
+    @Id
+    @Column(name="ROOM_ID")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-    private String name;
+    @Column(name="NAME")
     private String number;
+    @Column(name="ROOM_NUMBER")
+    private String name;
+    @Column(name="BED_INFO")
     private String info;
 
     public Room() {}

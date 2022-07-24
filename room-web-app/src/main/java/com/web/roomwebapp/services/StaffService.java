@@ -1,14 +1,11 @@
 package com.web.roomwebapp.services;
 
-import com.web.roomwebapp.models.StaffMember;
+import com.web.roomwebapp.data.StaffRepository;
+import com.web.roomwebapp.models.Staff;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
-import static com.web.roomwebapp.models.Position.*;
 
 /**
  * @author Tolik
@@ -19,13 +16,13 @@ import static com.web.roomwebapp.models.Position.*;
 @Service
 public class StaffService {
 
-    private static final List<StaffMember> _staff = new ArrayList<>();
-    static {
-        _staff.add(new StaffMember(UUID.randomUUID().toString(), "Joe", "Doe", FRONT_DESK));
-        _staff.add(new StaffMember(UUID.randomUUID().toString(), "Sam", "Serious", SECURITY));
-        _staff.add(new StaffMember(UUID.randomUUID().toString(), "Marry", "Poppins", HOUSEKEEPING));
+    private final StaffRepository staffRepository;
+
+    public StaffService(StaffRepository staffRepository) {
+        this.staffRepository = staffRepository;
     }
-    public List<StaffMember> getAllStaffMembers() {
-        return _staff;
+
+    public List<Staff> getAllStaff() {
+        return staffRepository.findAll();
     }
 }
