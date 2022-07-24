@@ -28,6 +28,7 @@
         <option value="$PROJECT_DIR$/room-web-app/pom.xml" />
         <option value="$PROJECT_DIR$/room-clr/pom.xml" />
         <option value="$PROJECT_DIR$/fizzbuzz/pom.xml" />
+        <option value="$PROJECT_DIR$/cleaner-notifier/pom.xml" />
       </list>
     </option>
   </component>
